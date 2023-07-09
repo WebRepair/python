@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> OpenAI api </title>    
+    <link href="{{ url_for('serve_static', filename='styles.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #F4F4F4;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #1E40AF;
+        color: #000000;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    p.response {
+        margin-top: 20px;
+        font-size: 16px;
+        white-space: pre-line;
+    }
+
+    @media only screen and (max-width: 480px) {
+        .container {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+
+<body class="bg-gray-100 ">
+    <div class="container">
+        <h1>Custom data GPT</h1>
+        <form method="POST" action="/">
+            <input type="text" name="query" placeholder="Enter your query">
+            <button type="submit">Submit</button>
+        </form>
+        {% if response %}
+            <p class="response"><strong>Response:</strong><br>{{ response }}</p>
+        {% endif %}
+    </div>
+</body>
+
+
+</html>
+
+
