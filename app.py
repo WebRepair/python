@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_from_directory
 import subprocess
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
